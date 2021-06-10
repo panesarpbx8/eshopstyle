@@ -1,1 +1,47 @@
-<p>collections works!</p>
+<section>
+	<div class="container">
+		<div class="categories">
+			<p>Categories</p>
+			<div class="list">
+				<div
+					*ngFor="let category of products.categories" 
+					class="item selected"
+					(click)="selectCategory(category.id)"
+					[class.selected]="selectedCategoryId === category.id">
+					{{ category.name }}
+				</div>
+			</div>
+		</div>
+		<div class="content">
+			<p class="number-results" *ngIf="products$ | async as products">
+				Showing {{ products.length }} results
+			</p>
+			<div class="products">
+				<div *ngFor="let product of products$ | async">
+					<div class="img" routerLink="product/{{ product.id }}">
+						<img [src]="product.photoURL" [alt]="product.name" height="275" loading="lazy">
+					</div>
+					<div class="price {{ products.getCategoryName(product.categoryId) }}">{{ product.price }} CAD</div>
+					<div class="wishlist">
+						<img src="assets/img/heart.svg" alt="wishlist" loading="lazy" height="15" width="15">
+					</div>
+					<div>
+						<p class="name">{{ product.name }}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="filter">
+			<p>Filter</p>
+			<div class="list">
+				<div
+					*ngFor="let sortMethod of products.sortMethods" 
+					class="item selected"
+					(click)="selectSortMethod(sortMethod.id)"
+					[class.selected]="selectedSortMethodId === sortMethod.id">
+					{{ sortMethod.name === 'HTL' ? 'Price: High to low' : 'Price: Low to high' }}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

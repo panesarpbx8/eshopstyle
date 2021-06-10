@@ -1,0 +1,156 @@
+section {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1400px;
+	padding-top: .5rem;
+	padding-bottom: 1rem;
+}
+
+.container {
+	display: flex;
+	flex-direction: column-reverse;
+	gap: 2rem;
+}
+
+.number-results {
+	font-weight: bold;
+	margin-bottom: 1rem;
+}
+
+.products {
+	display: grid;
+	grid-template-columns: repeat(1, 1fr);
+	gap: 1.5rem;
+	animation: fadeIn 500ms ease;
+	order: 3;
+
+	div {
+		background-color: var(--bgv);
+		padding: 1rem;
+		position: relative;
+		cursor: pointer;
+
+		.price {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 10%;
+			width: auto;
+			color: white;
+			display: grid;
+			place-content: center;
+			background-color: var(--text);
+			transition: 300ms background-color ease;
+		}
+		&:hover .price.men {
+			background-color: #5f3dc4;	
+		}
+		&:hover .price.women {
+			background-color: #e64980;	
+		}
+		&:hover .price.tech {
+			background-color: #22b8cf;	
+		}
+		&:hover .price.jewelery {
+			background-color: #f5b641;	
+		}
+
+		.wishlist {
+			position: absolute;
+			top: 0;
+			right: 0;
+			height: auto;
+			width: auto;
+			display: grid;
+			place-content: center;
+			transition: 300ms background-color ease;
+			background-color: rgb(222, 228, 233);
+			&:hover {
+				background-color: var(--bg);
+			}
+		}
+
+		.name {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			display: -webkit-box;
+			-webkit-line-clamp: 1; /* number of lines to show */
+			-webkit-box-orient: vertical;
+			font-size: 1.1rem;
+		}
+
+		.img {
+			height: 300px;
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			overflow: hidden;
+			padding: none;
+
+			img {
+				width: 100%;
+			}
+		}
+	}
+}
+
+.categories, .filter {
+	p {
+		font-size: 1.1rem;
+		font-weight: bold;
+		margin-bottom: 1rem;
+	}
+}
+
+.categories {
+	order: 2;
+}
+
+.filter {
+	order: 1;
+}
+
+.list {
+	display: flex;
+	flex-direction: column;
+
+	.item {
+		cursor: pointer;
+		border-left: 3px solid transparent;
+		padding: .5rem 0;
+		transition: 250ms background-color ease, 250ms padding ease;
+
+		&:hover, &.selected {
+			padding: .5rem 1rem;
+			background-color: rgb(244, 246, 248);
+		}
+
+		&.selected {
+			border-left: 3px solid #4193f5;
+		}
+	}
+}
+
+@media screen and (min-width: 888px) {
+	section {
+		padding-top: 1.5rem;
+	}
+	.container {	
+		display: grid;
+		grid-template-columns: 1fr 900px 1fr;
+	}
+
+	.categories {
+		order: unset;
+	}
+
+	.products {	
+		grid-template-columns: repeat(3, 1fr);
+		order: unset;
+	}
+
+	.filter {
+		order: unset;
+	}
+}

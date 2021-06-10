@@ -20,9 +20,9 @@ export class AuthService {
       if (this.userExists(email)) throw Error('User already exists');
       const credential = await this.ngAuth.createUserWithEmailAndPassword(email, password)
       await credential.user.updateProfile({ displayName });
-      this.toast.success('Account created!');
+      this.toast.success('Account created!', { duration: 3000 });
     } catch (e) {
-      this.toast.error(e.message);
+      this.toast.error(e.message, { duration: 3000 });
     }
   }
   
@@ -30,22 +30,24 @@ export class AuthService {
     try {
       if (!email || !password) throw Error('Invalid credentials');
       await this.ngAuth.signInWithEmailAndPassword(email, password);
+      this.toast.success('You are logged in!', { duration: 3000 });
     } catch (e) {
-      this.toast.error(e.message);
+      this.toast.error(e.message, { duration: 3000 });
     }
   }
 
   async googleLogin(): Promise<void> {
     try {
       await this.ngAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());  
+      this.toast.success('You are logged in!', { duration: 3000 });
     } catch (e) {
-      this.toast.error(e.message);
+      this.toast.error(e.message, { duration: 3000 });
     }
   }
 
   async logout(): Promise<void> {
     await this.ngAuth.signOut();
-    this.toast.success('You have been logged out!');
+    this.toast.success('You have been logged out!', { duration: 3000 });
   }
 
   private async userExists(email: string): Promise<boolean> {

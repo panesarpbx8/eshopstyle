@@ -1,0 +1,10 @@
+.outlet {
+	padding: .5rem 1rem;
+}
+
+
+@media screen and (min-width: 888px) {
+	.outlet {
+		padding: 0 1.5rem;
+	}
+}

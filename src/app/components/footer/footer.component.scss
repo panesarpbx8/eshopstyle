@@ -1,0 +1,18 @@
+footer {
+	width: 100%;
+	display: grid;
+	place-content: center;
+	padding: 60px 1rem;
+}
+
+.links {
+	display: flex;
+	justify-content: center;	
+	gap: 1rem;
+	margin-bottom: 2rem;
+}
+
+p {
+	text-align: center;
+	margin-bottom: .5rem;
+}

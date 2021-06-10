@@ -1,0 +1,114 @@
+:root {
+	--bg: #ffffff;
+	--bgv: #f1f3f5;
+	--text: rgb(62, 74, 82);
+
+	--theme: rgb(14, 15, 15);
+	
+	--theme-btn-bg: var(--theme);
+	--theme-btn-color: var(--bg);
+
+	--theme-input-bg: var(--bgv);
+	--theme-input-placeholder: #b0b9ca;
+	--theme-input-border: #d3d8df;
+	--theme-input-color: var(--text);
+
+	--nav-height: 70px;
+	--nav-link-color: #7c858f;
+}
+
+html, body { height: 100%; }
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	scroll-behavior: smooth;
+	margin: 0;
+	color: var(--text);
+	background-color: var(--bg);
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+section {
+	animation: fadeInRight 600ms ease-in-out;
+}
+
+h1, p {
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+	color: #4183f5;
+	&:hover {
+		text-decoration: underline;
+	}
+	&:visited, &:active {
+		color: #4183f5;
+	}
+}
+
+button {
+	user-select: none;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: .75rem;
+	border: 2px solid transparent;
+	outline: none;
+	background-color: var(--theme);
+	color: var(--theme-btn-color);
+
+	transition: 300ms background-color ease;
+
+	&:hover {
+		background-color: var(--theme-btn-color);
+		color: var(--theme-btn-bg);
+		border: 2px solid var(--theme-btn-bg);
+	}
+}
+
+input {
+	border: 2px solid transparent;
+	outline: none;
+	background-color: var(--theme-input-bg);
+	color: var(--theme-input-color);
+	padding: .6rem .85rem;
+	font-size: 1rem;
+	transition: 300ms border ease;
+	width: 100%;
+
+	&::placeholder {
+		color: var(--theme-input-placeholder);
+	}
+
+	&:focus {
+		border: 2px solid var(--theme-input-border);
+	}
+}
+
+@keyframes fadeInRight {
+	from {
+		transform: translateX(2%);
+		opacity: 0;
+	}
+	50% {
+		opacity: 0;
+	}
+	to {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
