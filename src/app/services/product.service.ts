@@ -24,6 +24,12 @@ export class ProductService {
 
   all$: Observable<Product[]> = of(data);
 
+  get(id: string): Observable<Product> {
+    return this.all$.pipe(
+      map(products => products.find(p => p.id === id)),
+    );
+  }
+
   select(categoryId: number): Observable<Product[]> {
     return this.all$.pipe(
       map(products => products.filter(p => p.categoryId === categoryId)),

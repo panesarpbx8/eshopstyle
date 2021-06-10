@@ -1,1 +1,5 @@
-<p>product works!</p>
+<section>
+	<div *ngIf="product$ | async as product">
+		<img [src]="product.photoURL" [alt]="product.name" loading="lazy" height="100px" width="100px">
+	</div>
+</section>
