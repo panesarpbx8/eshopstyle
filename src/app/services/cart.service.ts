@@ -38,6 +38,12 @@ export class CartService {
     this.save();
   }
 
+  placeOrder() {
+    this.state = initialState;
+    this.save();
+    this.toast.success('Order Placed!', { duration: 3000 });
+  }
+
   calculatePrice() {
     let subtotal = 0.00;
     let total = 0.00;

@@ -78,6 +78,8 @@ button {
 	outline: none;
 	background-color: var(--theme);
 	color: var(--theme-btn-color);
+	font-weight: bold;
+	letter-spacing: 2px;
 
 	transition: 300ms background-color ease;
 
@@ -130,7 +132,8 @@ input {
 	}
 }
 
-
+.red { color: rgb(238, 61, 61); }
+.red-border { border: 2px solid rgb(238, 61, 61); }
 
 .men {
 	background-color: #5f3dc4;	

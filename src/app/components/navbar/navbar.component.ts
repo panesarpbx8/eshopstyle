@@ -9,7 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
         <a routerLink="" class="logo">EShopStyle</a>
         <div class="left-nav-inner">
           <a routerLink="/collections">Shop All</a>
-          <a routerLink="">Tech</a>
+          <a routerLink="/about">About</a>
         </div>
       </div>
       <div class="center-nav">

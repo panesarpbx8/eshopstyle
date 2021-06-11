@@ -5,3 +5,17 @@
   </div>
   <app-footer></app-footer>
 </main>
+
+<div class="warning-modal" *ngIf="showWarning">
+	<div class="modal">
+		<h1 class="red">Warning!</h1>
+		<p>This is only a demo application and usage of any sensitive information should be avoided.</p>
+		<p>Enjoy elegant User Interface</p>
+		<button (click)="showWarning = false">UNDERSTOOD</button>
+	</div>
+</div>
+
+<div class="cookies" *ngIf="showCookies">
+	<p>This site uses cookies to improve your experience. By clicking, you agree to our <a>Privacy Policy</a>.</p>
+	<button (click)="showCookies = false">ACCEPT COOKIES</button>
+</div>

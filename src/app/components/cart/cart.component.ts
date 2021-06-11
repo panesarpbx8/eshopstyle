@@ -52,7 +52,7 @@ import { CartService } from 'src/app/services/cart.service';
         Total
       </div>
       <div class="proceed">
-        <button>Proceed to checkout</button>
+        <button (click)="close.emit()" routerLink="/checkout">Proceed to checkout</button>
       </div>
     </div>
   `,

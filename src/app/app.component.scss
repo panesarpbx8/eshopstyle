@@ -3,6 +3,56 @@
 	overflow-x: hidden;
 }
 
+.warning-modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	display: grid;
+	place-content: center;
+	background-color: rgba(0, 0, 0, 0.7);
+	z-index: 15;
+
+	.modal {
+		background-color: var(--bg);
+		padding: 2rem;
+		display: flex;
+		flex-direction: column;
+		width: 90%;
+		margin: 0 auto;
+		max-width: 600px;
+		font-size: 1.25rem;
+		text-align: center;
+
+		p {
+			margin-bottom: 2rem;
+		}
+
+		button {
+			padding: 1rem;
+		}
+	}
+}
+
+.cookies {
+	position: fixed;
+	bottom: 0;
+	background-color: var(--bg);
+	left: 0;
+	width: 100%;
+	height: auto;
+	padding: 2rem 1rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+	box-shadow: 0 0 10px rgba(115, 125, 133, 0.226);
+
+	button {
+		padding: .5rem 1rem;
+	}
+}
 
 @media screen and (min-width: 888px) {
 	.outlet {

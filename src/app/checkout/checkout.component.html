@@ -1,1 +1,120 @@
-<p>checkout works!</p>
+<section>
+	<div class="forms-container">
+		<div *ngIf="allowedStates.includes('user-info')" class="state">
+			<h1>1. Customer Information</h1>
+			<div *ngIf="auth.user$ | async as user; else guest">
+				<p class="subheading">Logged in as {{ user.email }}</p>
+				<button *ngIf="!allowedStates.includes('address')" (click)="continueToShipping(user)">CONTINUE</button>
+			</div>
+			<ng-template #guest>
+				<p class="subheading">Checkout as guest <span class="red">*</span></p>
+				<p *ngIf="emailErrorMessage" class="red error">{{ emailErrorMessage }}</p>
+				<div class="email-box">
+					<input type="email" name="email" [(ngModel)]="email" [class.red-border]="emailErrorMessage" 
+						(keyup)="clearEmailError()" placeholder="john.wick@example.com"> 
+					<button *ngIf="!allowedStates.includes('address')" (click)="continueToShipping()">CONTINUE</button>
+				</div>
+			</ng-template>
+		</div>
+
+		<div *ngIf="allowedStates.includes('address')" class="state">
+			<h1>2. Shipping Details</h1>
+			<div class="input-box">
+				<label>Enter full name <span class="red">*</span></label>
+				<input type="text" name="full_name" *ngIf="auth.user$ | async as user" 
+					[value]="user.displayName" placeholder="John Wick">
+				<input type="text" name="full_name" *ngIf="!(auth.user$ | async)" placeholder="John Wick">
+			</div>
+			<form [formGroup]="shippingForm">
+				<div class="input-box">
+					<label>Enter address <span class="red">*</span></label>
+					<input type="text" name="address" formControlName="address" 
+						[class.red-border]="addressField.touched && addressField.invalid"
+						placeholder="453 King Street">
+				</div>
+				<div class="input-box">
+					<label>Enter city <span class="red">*</span></label>
+					<input type="text" name="city" formControlName="city" 
+						[class.red-border]="cityField.touched && cityField.invalid"
+						placeholder="Toronto">
+				</div>
+				<div class="input-group">
+					<div class="input-box">
+						<label>Enter province <span class="red">*</span></label>
+						<input type="text" name="province" formControlName="province" 
+							[class.red-border]="provinceField.touched && provinceField.invalid"
+							placeholder="ON">
+					</div>
+					<div class="input-box">
+						<label>Enter country <span class="red">*</span></label>
+						<input type="text" name="country" formControlName="country" 
+							[class.red-border]="countryField.touched && countryField.invalid"
+							placeholder="Canada">
+					</div>
+				</div>
+				<div class="input-box">
+					<label>Enter postal code <span class="red">*</span></label>
+					<input type="text" name="postal" formControlName="postal" 
+						[class.red-border]="postalField.touched && postalField.invalid"
+						placeholder="XXX XXX">
+				</div>
+			</form>
+			<p class="red error" *ngIf="shippingForm.invalid && shippingForm.touched">Shipping form has errors</p>
+			<button *ngIf="!allowedStates.includes('payment')" (click)="continueToPayment()" class="proceed">CONTINUE</button>
+		</div>
+
+		<div *ngIf="allowedStates.includes('payment')" class="state">
+			<h1>3. Payment</h1>
+			<form [formGroup]="paymentForm">
+				<div class="input-box">
+					<label>Enter card number</label>
+					<input type="text" name="card_number" formControlName="cardNumber" 
+						[class.red-border]="cardNumberField.touched && cardNumberField.invalid"
+						placeholder="16 digit card number">
+				</div>
+				<div class="input-group">
+					<div class="input-box">
+						<label>Enter CVV</label>
+						<input type="password" name="cvv" formControlName="cvv" 
+							[class.red-border]="cvvField.touched && cvvField.invalid"
+							placeholder="3 digit cvv code">
+					</div>
+					<div class="input-box">
+						<label>Enter expiry date</label>
+						<input type="text" name="exp" formControlName="exp" 
+							[class.red-border]="expField.touched && expField.invalid"
+							placeholder="mm/yy">
+					</div>
+				</div>
+			</form>
+			<p class="red error" *ngIf="paymentForm.invalid && paymentForm.touched">Payment form has errors</p>
+			<p class="error">You have read and agreed to our <a>Privacy Policy</a> and <a>Terms of use</a></p>
+			<button class="proceed" routerLink="/" (click)="placeOrder()">PLACE ORDER</button>
+		</div>
+	</div>
+
+	<div class="order-review-container">
+		<div class="order-review">
+			<h1>Order Summary</h1>
+			<div class="items">
+        <div *ngFor="let item of cart.items" class="item">
+          <img [src]="item.product.photoURL" alt="item" loading="lazy">
+          <div class="product">
+            <p class="name">{{ item.product.name }}</p>
+            <div class="quantity">
+              <div>{{ item.quantity }}</div>
+            </div>
+          </div>
+          <div class="action">
+            <p class="price">{{ '$'+item.price.toFixed(2) }} CAD</p>
+          </div>
+        </div>
+			</div>
+			<div class="pricing">
+				<span>Total</span>
+				<span>${{ cart.total.toFixed(2) }} CAD</span>
+			</div>
+		</div>
+	</div>
+
+</section>
