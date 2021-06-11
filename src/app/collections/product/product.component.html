@@ -12,7 +12,7 @@
 				<span class="{{ getCategoryName(product.categoryId) }}">${{ product.price }} CAD</span>
 			</p>
 			<p class="overview">{{ product.description }}</p>
-			<button class="add">Add to cart</button>
+			<button class="add" (click)="addToCart(product)">Add to cart</button>
 			<button class="add">Buy now</button>
 		</div>
 	</div>

@@ -18,7 +18,7 @@
 			</p>
 			<div class="products">
 				<div *ngFor="let product of products$ | async">
-					<div class="img" routerLink="product/{{ product.id }}">
+					<div class="img" routerLink="/collections/product/{{ product.id }}">
 						<img [src]="product.photoURL" [alt]="product.name" height="275" loading="lazy">
 					</div>
 					<div class="price {{ products.getCategoryName(product.categoryId) }}">{{ product.price }} CAD</div>
@@ -39,7 +39,9 @@
 					class="item selected"
 					(click)="selectSortMethod(sortMethod.id)"
 					[class.selected]="selectedSortMethodId === sortMethod.id">
-					{{ sortMethod.name === 'HTL' ? 'Price: High to low' : 'Price: Low to high' }}
+					<span *ngIf="sortMethod.name === 'NONE'">none</span>
+					<span *ngIf="sortMethod.name === 'HTL'">Price: High to low</span>
+					<span *ngIf="sortMethod.name === 'LTH'">Price: Low to high</span>
 				</div>
 			</div>
 		</div>

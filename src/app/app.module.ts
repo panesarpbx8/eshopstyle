@@ -8,12 +8,14 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HotToastModule } from '@ngneat/hot-toast';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     FooterComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,

@@ -16,7 +16,7 @@ import { AuthService } from 'src/app/services/auth.service';
         <input type="text" name="search" placeholder="Search for products" autocomplete="off">
       </div>
       <div class="right-nav">
-        <a routerLink="">
+        <a (click)="showCart = true">
           <img src="assets/img/cart.svg" alt="cart" loading="lazy" height="25" width="25">
         </a>
         <a routerLink="">
@@ -27,10 +27,18 @@ import { AuthService } from 'src/app/services/auth.service';
         </a>
       </div>
     </nav>
+
+    <div class="cart-overlay" *ngIf="showCart" (click)="closeCart($event)">
+      <div class="cart">
+        <app-cart (close)="showCart = false"></app-cart>
+      </div>
+    </div>
   `,
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+
+  showCart: boolean;
 
   constructor(public auth: AuthService) { 
     document.onscroll = () => {
@@ -40,6 +48,11 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  closeCart(e: any) {
+		if (e.target !== e.currentTarget) { return; }
+		this.showCart = false;
   }
 
 }

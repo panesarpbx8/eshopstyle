@@ -29,6 +29,22 @@ body {
 	color: var(--text);
 	background-color: var(--bg);
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	/* width */
+	&::-webkit-scrollbar {
+		width: 5px;
+	}
+	/* Track */
+	&::-webkit-scrollbar-track {
+		background: #d1d6d8;
+	}
+	/* Handle */
+	&::-webkit-scrollbar-thumb {
+	  background: var(--theme);
+	}
+	/* Handle on hover */
+	&::-webkit-scrollbar-thumb:hover {
+		background: #555;
+	}
 }
 
 section {
@@ -40,6 +56,7 @@ h1, p {
 }
 
 a {
+	cursor: pointer;
 	text-decoration: none;
 	color: #4183f5;
 	&:hover {

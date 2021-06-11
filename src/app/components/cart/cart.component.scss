@@ -1,0 +1,155 @@
+.cart {
+	padding: 1rem;
+
+	.close {
+		float: right;
+		cursor: pointer;
+	}
+
+	h1 {
+		margin-bottom: 1rem;
+		padding-bottom: .5rem;
+		font-size: 1.5rem;
+		text-transform: uppercase;
+		border-bottom: 1px solid rgb(231, 231, 231);
+	}
+
+	.empty {
+		font-size: 1.1rem;
+		margin-bottom: .5rem;
+	}
+
+	.items {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		height: 400px;
+		overflow-y: auto;
+		padding-right: 1rem;
+		border-bottom: 1px solid rgb(231, 231, 231);
+
+		/* width */
+		&::-webkit-scrollbar {
+		width: 5px;
+		}
+
+		/* Track */
+		&::-webkit-scrollbar-track {
+		background: #d1d6d8;
+		}
+
+		/* Handle */
+		&::-webkit-scrollbar-thumb {
+		background: var(--theme);
+		}
+
+		/* Handle on hover */
+		&::-webkit-scrollbar-thumb:hover {
+		background: #555;
+		}
+
+		.item {
+			display: grid;
+			grid-template-columns: 75px 1fr 100px;
+			gap: 1rem;
+			padding: 1rem;
+			background-color: var(--bgv);
+
+			img {
+				width: 100%;
+				height: auto;
+			}
+
+			.product {
+				display: flex;
+				flex-direction: column;
+				gap: 1rem;
+
+				.name {
+					font-weight: bold;
+				}
+				.quantity {
+					display: flex;
+					gap: 1rem;
+
+					span {
+						cursor: pointer;
+						user-select: none;
+						img {
+							height: 11px;
+							width: 11px;
+						}
+					}
+
+					div {
+						background-color: var(--bg);
+						font-size: 1.1rem;
+						padding: 0 .6rem;
+						user-select: none;
+					}
+				}
+			}
+			.action {
+				display: flex;
+				flex-direction: column;
+				align-items: flex-end;
+
+				.price {
+					font-weight: bold;
+				}
+				.delete-icon {
+					margin-top: 1rem;
+					img {
+						width: 20px;
+						height: 20px;
+						cursor: pointer;
+					}
+				}
+			}
+		}
+	}
+	.pricing, .total {
+		font-size: 1.05rem;
+		padding-top: 1rem;
+
+		span {
+			float: right;
+		}
+	}
+	.pricing {
+		padding-bottom: .5rem;
+		border-bottom: 1px solid rgb(231, 231, 231);
+		
+		div {
+			margin-bottom: .5rem;
+		}
+	}
+	.total {
+		font-weight: bold;
+		padding-bottom: 1rem;
+		border-bottom: none;
+	}
+	.proceed {
+		width: 100%;
+		// max-width: 400px;
+		// margin: 0 auto;
+		button {
+			padding: 1rem 0;
+			width: 100%;
+			text-transform: uppercase;
+			font-size: 1rem;
+			font-weight: bold;
+			letter-spacing: 2px;
+		}
+	}
+}
+
+@media screen and (min-width: 888px) {
+	.cart {
+		padding: 1rem 2rem;
+
+		.items {
+			height: 400px;
+		}
+	}
+}

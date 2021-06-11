@@ -1,4 +1,4 @@
 export interface SortMethod {
 	id: number;
-	name: 'HTL' | 'LTH';
+	name: 'HTL' | 'LTH' | 'NONE'; 
 }

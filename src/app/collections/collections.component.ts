@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { Product } from '../interfaces/product';
 import { ProductService } from '../services/product.service';
-
-type SortMethod = 'highToLow' | 'lowToHigh' | 'none';
 
 @Component({
   selector: 'app-collections',
@@ -16,7 +13,7 @@ export class CollectionsComponent implements OnInit {
   products$: Observable<Product[]>;
 
   selectedCategoryId: number = 1;
-  selectedSortMethodId: number = 1;
+  selectedSortMethodId: number = 0;
 
   constructor(public products: ProductService) { }
 
@@ -27,8 +24,10 @@ export class CollectionsComponent implements OnInit {
   selectCategory(id: number) {
     this.selectedCategoryId = id;
 
-    if (id === 1) this.products$ = this.products.all$;
-    else this.products$ = this.products.select(id);
+    this.products$ = this.products.sort(
+      id === 1 ? this.products.all$ : this.products.select(id), 
+      this.selectedSortMethodId
+    );
   }
 
   selectSortMethod(id: number) {

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, switchMap } from 'rxjs/operators';
 import { Category } from '../interfaces/category';
 import { Product } from '../interfaces/product';
 import { SortMethod } from '../interfaces/sortmethod';
@@ -40,17 +40,35 @@ export class ProductService {
     return this.categories.filter(c => c.id === id)[0].name.toLowerCase();
   }
 
-  sort(products$: Observable<Product[]>, sortMethodId: number) {
+  sort1(products$: Observable<Product[]>, sortMethodId: number) {
     return products$.pipe(
       map(products => {
         const method = this.sortMethods.filter(s => s.id === sortMethodId)[0].name;
+        
         if (method === 'HTL') { // High to low
           return products.sort((a, b) => b.price - a.price);
-        } else { // Low to high
+        } 
+        if (method === 'LTH') { // Low to high
           return products.sort((a, b) => a.price - b.price);
-        }
+        } 
+        return of(products);
       })
     )
+  }
+
+  sort(products$: Observable<Product[]>, sortMethodId: number) {
+    return products$.pipe(
+      switchMap((products) => {
+        const method = this.sortMethods.filter(s => s.id === sortMethodId)[0]?.name || 'NONE';
+        switch (method) {
+          case 'HTL': return products$.pipe(map(products => products.sort((a, b) => b.price - a.price)));
+          
+          case 'LTH': return products$.pipe(map(products => products.sort((a, b) => a.price - b.price)));
+
+          case 'NONE': return of(products);
+        }
+      })
+    );
   }
 
 
