@@ -12,7 +12,7 @@ import { ProductService } from 'src/app/services/product.service';
 export class ProductComponent implements OnInit {
 
   product$: Observable<Product>;
-
+  
   constructor(
     private route: ActivatedRoute,
     private products: ProductService,
@@ -21,6 +21,10 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
     const id = this.route.snapshot.params.id;
     this.product$ = this.products.get(id);
+  }
+
+  getCategoryName(id: number) {
+    return this.products.getCategoryName(id);
   }
 
 }

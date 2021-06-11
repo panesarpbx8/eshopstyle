@@ -1,5 +1,19 @@
 <section>
-	<div *ngIf="product$ | async as product">
-		<img [src]="product.photoURL" [alt]="product.name" loading="lazy" height="100px" width="100px">
+	<div *ngIf="product$ | async as product" class="product">
+		<div class="image {{ getCategoryName(product.categoryId) }}">
+			<img [src]="product.photoURL" [alt]="product.name" loading="lazy">
+		</div>
+		<div class="info">
+			<div class="wishlist {{ getCategoryName(product.categoryId) }}">
+				<img src="assets/img/heart.svg" alt="wishlist" loading="lazy" height="30" width=30>
+			</div>
+			<h1 class="name">{{ product.name }}</h1>
+			<p class="price">
+				<span class="{{ getCategoryName(product.categoryId) }}">${{ product.price }} CAD</span>
+			</p>
+			<p class="overview">{{ product.description }}</p>
+			<button class="add">Add to cart</button>
+			<button class="add">Buy now</button>
+		</div>
 	</div>
 </section>
