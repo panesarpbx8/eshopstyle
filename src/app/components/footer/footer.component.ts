@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
       </div>
       <div class="divider"></div>
       <p>© 2021 EShopStyle, Inc. All rights reserved.</p>
-      <p>Developed by <a target="_blank" href="https://panesarpbx8.web.app">Sukhpreet Singh</a></p>
+      <p>Developed by <a target="_blank" rel="noopener" rel="noreferrer" href="https://panesarpbx8.web.app">Sukhpreet Singh</a></p>
     </footer>
   `,
   styleUrls: ['./footer.component.scss']

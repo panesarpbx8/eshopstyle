@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 import { Cart } from '../interfaces/cart';
 import { User } from '../interfaces/user';
 import { AuthService } from '../services/auth.service';
@@ -29,9 +30,11 @@ export class CheckoutComponent implements OnInit {
     public auth: AuthService,
     private cartService: CartService,
     private builder: FormBuilder,
+    private title: Title,
   ) { }
 
   ngOnInit(): void {
+    this.title.setTitle('EShopStyle | Checkout');
     this.shippingForm = this.builder.group({
       address: ['', [Validators.required]],
       city: ['', [Validators.required]],

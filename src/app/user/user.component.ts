@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -8,9 +9,10 @@ import { AuthService } from '../services/auth.service';
 })
 export class UserComponent implements OnInit {
 
-  constructor(public auth: AuthService) { }
+  constructor(public auth: AuthService, private title: Title) { }
 
   ngOnInit(): void {
+    this.title.setTitle('EShopStyle | User');
   }
 
 }

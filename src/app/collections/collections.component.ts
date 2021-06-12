@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Observable } from 'rxjs';
 import { Product } from '../interfaces/product';
 import { ProductService } from '../services/product.service';
@@ -15,9 +16,10 @@ export class CollectionsComponent implements OnInit {
   selectedCategoryId: number = 1;
   selectedSortMethodId: number = 0;
 
-  constructor(public products: ProductService) { }
+  constructor(public products: ProductService, private title: Title) { }
 
   ngOnInit(): void {
+    this.title.setTitle('EShopStyle | Shop All');
     this.products$ = this.products.sort(this.products.all$, this.selectedSortMethodId);
   }
 

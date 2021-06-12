@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CartItem } from 'src/app/interfaces/cart';
@@ -19,11 +20,13 @@ export class ProductComponent implements OnInit {
     private route: ActivatedRoute,
     private products: ProductService,
     private cartService: CartService,
+    private title: Title,
   ) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.params.id;
     this.product$ = this.products.get(id);
+    this.title.setTitle('EShopStyle | Product');
   }
 
   getCategoryName(id: number) {
