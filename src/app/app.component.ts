@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-interface Cookie {
-  show: boolean;
-}
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,16 +9,15 @@ export class AppComponent implements OnInit {
   showCookies: boolean = true;
 
   ngOnInit() {
-    const cookie: Cookie = JSON.parse(sessionStorage['cookie']);
-
-    if (!cookie) {
+    if (!sessionStorage['cookie']) {
       sessionStorage['cookie'] = JSON.stringify({ show: true });
+    }
+    const cookie = JSON.parse(sessionStorage['cookie']);
+    
+    if (cookie.show) {
+      this.showCookies = true;
     } else {
-      if (cookie.show) {
-        this.showCookies = true;
-      } else {
-        this.showCookies = false;
-      }
+      this.showCookies = false;
     }
   }
   

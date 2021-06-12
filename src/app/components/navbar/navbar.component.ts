@@ -31,7 +31,7 @@ import { CartService } from 'src/app/services/cart.service';
         </a>
         <ng-template #noUser>
           <a routerLink="/login">
-            <img src="assets/img/user.svg" alt="user" class="user-image" loading="lazy" height="35" width="35">
+            <img src="assets/img/user.svg" alt="user" class="user-image" loading="lazy" height="25" width="25">
           </a>
         </ng-template>
       </div>
