@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-navbar',
@@ -16,7 +17,8 @@ import { AuthService } from 'src/app/services/auth.service';
         <input type="text" name="search" placeholder="Search for products" autocomplete="off">
       </div>
       <div class="right-nav">
-        <a (click)="showCart = true">
+        <a (click)="showCart = true" class="cart-link">
+          <span>{{ cart.totalCartItems }}</span>
           <img src="assets/img/cart.svg" alt="cart" loading="lazy" height="25" width="25">
         </a>
         <a *ngIf="auth.user$ | async as user; else noUser" routerLink="/user">
@@ -42,7 +44,7 @@ export class NavbarComponent implements OnInit {
 
   showCart: boolean;
 
-  constructor(public auth: AuthService) { 
+  constructor(public auth: AuthService, public cart: CartService) { 
     document.onscroll = () => {
       document.querySelector('nav')
         .classList.toggle('scrolled', document.scrollingElement.scrollTop > document.querySelector('nav').offsetHeight)      
