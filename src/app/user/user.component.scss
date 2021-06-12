@@ -1,0 +1,25 @@
+section {
+	padding-top: 1rem;
+	margin: 0 auto;
+	width: 100%;
+	max-width: 600px;
+}
+
+h1 {
+	text-align: center;
+	font-size: 2rem;
+	margin-bottom: 1.5rem;
+	text-transform: uppercase;
+	span {
+		color: #4183f5;
+	}
+}
+
+div {
+	text-align: center;
+}
+
+img {
+	border-radius: 100px;
+	box-shadow: 0 0 10px rgba(112, 121, 128, 0.493);
+}
