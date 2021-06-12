@@ -7,7 +7,7 @@ export const data: Product[] = [
     name: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
     description: "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
     photoURL: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-    price: 109.95
+    price: 109.99
   },
   {
     categoryId: 3,
@@ -15,7 +15,7 @@ export const data: Product[] = [
     name: "Mens Casual Premium Slim Fit T-Shirts ",
     description: "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.",
     photoURL: "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
-    price: 22.3
+    price: 22.99
   },
   {
     categoryId: 3,
@@ -39,7 +39,7 @@ export const data: Product[] = [
     id: "1361eb82-2491-435f-b541-2614730524f7",
     description: "Satisfaction Guaranteed. Return or exchange any order within 30 days.Designed and sold by Hafeez Center in the United States. Satisfaction Guaranteed. Return or exchange any order within 30 days.",
     photoURL: "https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg",
-    price: 168
+    price: 168.99
   },
   {
     categoryId: 5,
@@ -47,7 +47,7 @@ export const data: Product[] = [
     name: "John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet",
     description: "From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean's pearl. Wear facing inward to be bestowed with love and abundance, or outward for protection.",
     photoURL: "https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg",
-    price: 695
+    price: 695.99
   },
   {
     categoryId: 4,
@@ -55,7 +55,7 @@ export const data: Product[] = [
     id: "fb6c4581-2a93-4dd9-8e75-786847749d30",
     description: "USB 3.0 and USB 2.0 Compatibility Fast data transfers Improve PC Performance High Capacity; Compatibility Formatted NTFS for Windows 10, Windows 8.1, Windows 7; Reformatting may be required for other operating systems; Compatibility may vary depending on user’s hardware configuration and operating system",
     photoURL: "https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg",
-    price: 64
+    price: 64.99
   },
   {
     categoryId: 4,
@@ -63,7 +63,7 @@ export const data: Product[] = [
     description: "21. 5 inches Full HD (1920 x 1080) widescreen IPS display And Radeon free Sync technology. No compatibility for VESA Mount Refresh Rate: 75Hz - Using HDMI port Zero-frame design | ultra-thin | 4ms response time | IPS panel Aspect ratio - 16: 9. Color Supported - 16. 7 million colors. Brightness - 250 nit Tilt angle -5 degree to 15 degree. Horizontal viewing angle-178 degree. Vertical viewing angle-178 degree 75 hertz",
     photoURL: "https://fakestoreapi.com/img/81QpkIctqPL._AC_SX679_.jpg",
     id: "c81d4628-0edc-4bc4-b745-ab71c4c9fd6d",
-    price: 599
+    price: 599.99
   },
   {
     categoryId: 5,
@@ -95,7 +95,7 @@ export const data: Product[] = [
     id: "1a5509e6-eda7-4427-a56e-938b128a817c",
     description: "95% RAYON 5% SPANDEX, Made in USA or Imported, Do Not Bleach, Lightweight fabric with great stretch for comfort, Ribbed on sleeves and neckline / Double stitching on bottom hem",
     photoURL: "https://fakestoreapi.com/img/71z3kpMAYsL._AC_UY879_.jpg",
-    price: 9.85
+    price: 9.99
   },
   {
     categoryId: 2,
@@ -111,7 +111,7 @@ export const data: Product[] = [
     id: "b167b74e-6333-42f2-a6b5-ad54b6d580f5",
     description: "100% Polyester, Machine wash, 100% cationic polyester interlock, Machine Wash & Pre Shrunk for a Great Fit, Lightweight, roomy and highly breathable with moisture wicking fabric which helps to keep moisture away, Soft Lightweight Fabric with comfortable V-neck collar and a slimmer fit, delivers a sleek, more feminine silhouette and Added Comfort",
     photoURL: "https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg",
-    price: 7.95
+    price: 7.99
   },
   {
     categoryId: 4,
@@ -119,7 +119,7 @@ export const data: Product[] = [
     description: "Easy upgrade for faster boot up, shutdown, application load and response (As compared to 5400 RPM SATA 2.5” hard drive; Based on published specifications and internal benchmarking tests using PCMark vantage scores) Boosts burst write performance, making it ideal for typical PC workloads The perfect balance of performance and reliability Read/write speeds of up to 535MB/s/450MB/s (Based on internal testing; Performance may vary depending upon drive capacity, host device, OS and application.)",
     photoURL: "https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_.jpg",
     id: "6131268a-8280-4439-b50b-77d15aaa961e",
-    price: 109
+    price: 109.99
   },
   {
     categoryId: 2,
@@ -127,7 +127,7 @@ export const data: Product[] = [
     description: "Note:The Jackets is US standard size, Please choose size as your usual wear Material: 100% Polyester; Detachable Liner Fabric: Warm Fleece. Detachable Functional Liner: Skin Friendly, Lightweigt and Warm.Stand Collar Liner jacket, keep you warm in cold weather. Zippered Pockets: 2 Zippered Hand Pockets, 2 Zippered Pockets on Chest (enough to keep cards or keys)and 1 Hidden Pocket Inside.Zippered Hand Pockets and Hidden Pocket keep your things secure. Humanized Design: Adjustable and Detachable Hood and Adjustable cuff to prevent the wind and water,for a comfortable fit. 3 in 1 Detachable Design provide more convenience, you can separate the coat and inner as needed, or wear it together. It is suitable for different season and help you adapt to different climates",
     photoURL: "https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg",
     id: "1f44a9ec-067c-4400-b561-58ca02f671be",
-    price: 56.99
+    price: 54.99
   },
   {
     categoryId: 2,
@@ -135,7 +135,7 @@ export const data: Product[] = [
     description: "100% POLYURETHANE(shell) 100% POLYESTER(lining) 75% POLYESTER 25% COTTON (SWEATER), Faux leather material for style and comfort / 2 pockets of front, 2-For-One Hooded denim style faux leather jacket, Button detail on waist / Detail stitching at sides, HAND WASH ONLY / DO NOT BLEACH / LINE DRY / DO NOT IRON",
     photoURL: "https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg",
     id: "1eccca2b-da1f-4c92-84e5-c285ec0195f3",
-    price: 29.95
+    price: 29.99
   },
   {
     categoryId: 4,
@@ -149,7 +149,7 @@ export const data: Product[] = [
     description: "3D NAND flash are applied to deliver high transfer speeds Remarkable transfer speeds that enable faster bootup and improved overall system performance. The advanced SLC Cache Technology allows performance boost and longer lifespan 7mm slim design suitable for Ultrabooks and Ultra-slim notebooks. Supports TRIM command, Garbage Collection technology, RAID, and ECC (Error Checking & Correction) to provide the optimized performance and enhanced reliability.",
     categoryId: 4,
     name: "Silicon Power 256GB SSD 3D NAND A55 SLC Cache Performance Boost SATA III 2.5",
-    price: 109,
+    price: 110.99,
     photoURL: "https://fakestoreapi.com/img/71kWymZ+c+L._AC_SX679_.jpg",
     id: "2ef488df-88ca-4894-bdae-0d3bd1ad6c74",
   },
@@ -157,7 +157,7 @@ export const data: Product[] = [
     description: "Expand your PS4 gaming experience, Play anywhere Fast and easy, setup Sleek design with high capacity, 3-year manufacturer's limited warranty",
     categoryId: 4,
     name: "WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive",
-    price: 114,
+    price: 115.99,
     id: "f46c5c69-e7f0-40b3-a97b-5f5dd3340dde",
     photoURL: "https://fakestoreapi.com/img/61mtL65D4cL._AC_SX679_.jpg"
   }

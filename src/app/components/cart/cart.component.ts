@@ -33,7 +33,7 @@ import { CartService } from 'src/app/services/cart.service';
           </div>
         </div>
       </div>
-      <div class="pricing">
+      <div class="pricing" *ngIf="cart.items.length !== 0">
         <div>
           <span>{{ '$'+cart.subtotal.toFixed(2) }} CAD</span>
           Subtotal
@@ -47,11 +47,11 @@ import { CartService } from 'src/app/services/cart.service';
           Estimated Shipping
         </div>
       </div>
-      <div class="total">
+      <div class="total" *ngIf="cart.items.length !== 0">
         <span>{{ '$'+cart.total.toFixed(2) }} CAD</span>
         Total
       </div>
-      <div class="proceed">
+      <div class="proceed" *ngIf="cart.items.length !== 0">
         <button (click)="close.emit()" routerLink="/checkout">Proceed to checkout</button>
       </div>
     </div>

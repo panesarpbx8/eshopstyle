@@ -70,7 +70,9 @@ export class CartService {
 
   get totalCartItems() {
     let n = 0;
-    this.state.items.forEach(i => n = n + i.quantity);
+    if (this.state.items) {
+      this.state.items.forEach(i => n = n + i.quantity);
+    }
     return n;
   }
 }
