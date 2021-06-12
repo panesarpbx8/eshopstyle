@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
     <footer>
       <div class="links">
         <a routerLink="/">Home</a>
-        <a routerLink="/terms-of-use">Terms of use</a>
         <a routerLink="/privacy-policy">Privacy Policy</a>
         <a routerLink="/about">About</a>
       </div>
