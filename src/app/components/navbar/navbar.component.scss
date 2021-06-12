@@ -35,6 +35,13 @@ nav {
 	box-shadow: 0 0 25px rgba(115, 125, 133, 0.137);
 }
 
+.menu {
+	padding-right: 1rem;
+	img {
+		vertical-align: middle;
+	}
+}
+
 .logo {
 	font-family: 'Lobster', cursive;
 	font-weight: bold;
@@ -50,6 +57,20 @@ nav {
 
 .left-nav-inner {
 	display: none;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 1rem;
+
+	position: fixed;
+	z-index: 8;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background-color: var(--bg);
+	margin-top: 107px;
+	padding: 1rem;
+	font-size: 1.5rem;
 }
 
 .center-nav {
@@ -101,14 +122,30 @@ nav {
 		height: 75px;
 		padding: 0 1.5rem;
 	}
+	.menu {
+		display: none;	
+	}
+	.left-nav-inner {
+		display: flex;
+		flex-direction: unset;
+		align-items: unset;
+		gap: 1rem;
+		position: unset;
+		z-index: unset;
+		top: unset;
+		left: unset;
+		height: unset;
+		width: unset;
+		background-color: unset;
+		margin-top: unset;
+		padding: unset;
+		font-size: unset;
+	}
 	.left-nav, .left-nav-inner, .center-nav, .right-nav {
 		gap: 1.5rem;
 		font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 		font-size: 1.05rem;
 		letter-spacing: .015rem;
-	}
-	.left-nav-inner {
-		display: flex;
 	}
 	.left-nav {
 		justify-content: flex-start;
@@ -118,7 +155,6 @@ nav {
 			padding-bottom: 5px;
 		}
 		a {
-			color: var(--nav-link-color);
 			&:hover {
 				color: currentColor;
 				text-decoration: none;

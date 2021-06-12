@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { CartService } from 'src/app/services/cart.service';
 
@@ -6,10 +6,15 @@ import { CartService } from 'src/app/services/cart.service';
   selector: 'app-navbar',
   template: `
     <nav>
+      <!-- <div class="nav-button">
+      </div> -->
       <div class="left-nav">
+        <a class="menu" (click)="toggle()">
+          <img src="assets/img/menu.svg" alt="menu" loading="lazy" height="20" width="20">
+        </a>
         <a routerLink="" class="logo">EShopStyle</a>
-        <div class="left-nav-inner">
-          <a routerLink="/collections">Shop All</a>
+        <div class="left-nav-inner" #leftNavInner>
+          <a routerLink="/collections">Shop all</a>
           <a routerLink="/about">About</a>
         </div>
       </div>
@@ -42,6 +47,8 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class NavbarComponent implements OnInit {
 
+  @ViewChild('leftNavInner') leftNavInner: ElementRef<HTMLDivElement>;
+
   showCart: boolean;
 
   constructor(public auth: AuthService, public cart: CartService) { 
@@ -57,6 +64,14 @@ export class NavbarComponent implements OnInit {
   closeCart(e: any) {
 		if (e.target !== e.currentTarget) { return; }
 		this.showCart = false;
+  }
+
+  toggle() {
+    if (this.leftNavInner.nativeElement.style.display === 'none') {
+      this.leftNavInner.nativeElement.style.display = 'flex';
+    } else {
+      this.leftNavInner.nativeElement.style.display = 'none';
+    }
   }
 
 }
