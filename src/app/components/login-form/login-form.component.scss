@@ -1,0 +1,32 @@
+form {
+	width: 100%;
+	max-width: 400px;
+	margin: 0 auto;
+}
+
+h1 {
+	font-size: 2rem;
+}
+
+h1, button {
+	text-transform: uppercase;
+	margin-bottom: 1rem;
+	text-align: center;
+}
+
+button {
+	padding: 1rem;
+	width: 100%;
+}
+
+p {
+	margin-bottom: 1rem;
+	text-align: center;
+}
+
+.input-box {
+	margin-bottom: 1rem;
+	display: flex;
+	flex-direction: column;
+	gap: .5rem;
+}

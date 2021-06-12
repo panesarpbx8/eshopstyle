@@ -1,1 +1,32 @@
-<p>login-form works!</p>
+<form>
+	<h1 *ngIf="state === 'sign-up'">Create Account</h1>
+	<h1 *ngIf="state === 'login'">Log in</h1>
+
+	<p class="red" *ngIf="error">{{ error }}</p>
+
+	<div *ngIf="state === 'sign-up'" class="input-box">
+		<label>Enter full name <span class="red">*</span></label>
+		<input type="text" name="name" [(ngModel)]="displayName" placeholder="John Wick">
+	</div>
+	<div class="input-box">
+		<label>Enter email <span class="red">*</span></label>
+		<input type="email" name="email" [(ngModel)]="email" placeholder="john.wick@gmail.com">
+	</div>
+	<div class="input-box">
+		<label>Enter password <span class="red">*</span></label>
+		<input type="password" name="password" [(ngModel)]="password" placeholder="6 or more characters">
+	</div>
+	<p>
+		<a *ngIf="state === 'login'" (click)="state = 'sign-up'">Create account</a>
+		<a *ngIf="state === 'sign-up'" (click)="state = 'login'">Already have account</a>
+	</p>
+	<button *ngIf="state === 'login'" (click)="login()">
+		Log in
+	</button>
+	<button *ngIf="state === 'sign-up'" (click)="signUp()">
+		Create account
+	</button>
+	<button (click)="googleLogin()">
+		continue with google
+	</button>
+</form>

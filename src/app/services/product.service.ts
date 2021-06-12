@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { filter, map, switchMap } from 'rxjs/operators';
 import { Category } from '../interfaces/category';
 import { Product } from '../interfaces/product';
 import { SortMethod } from '../interfaces/sortmethod';
@@ -27,6 +27,12 @@ export class ProductService {
   get(id: string): Observable<Product> {
     return this.all$.pipe(
       map(products => products.find(p => p.id === id)),
+    );
+  }
+
+  getAllByIds(ids: string[]): Observable<Product[]> {
+    return this.all$.pipe(
+      
     );
   }
 

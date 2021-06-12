@@ -19,12 +19,14 @@ import { AuthService } from 'src/app/services/auth.service';
         <a (click)="showCart = true">
           <img src="assets/img/cart.svg" alt="cart" loading="lazy" height="25" width="25">
         </a>
-        <a routerLink="">
-          <img src="assets/img/heart.svg" alt="wishlist" loading="lazy" height="22" width="22">
-        </a>
-        <a *ngIf="auth.user$ | async as user" routerLink="">
+        <a *ngIf="auth.user$ | async as user; else noUser" routerLink="/user">
           <img class="user-image" [src]="user.photoURL" [alt]="user.displayName" loading="lazy" height="35" width="35">
         </a>
+        <ng-template #noUser>
+          <a routerLink="/login">
+            <img src="assets/img/user.svg" alt="user" class="user-image" loading="lazy" height="35" width="35">
+          </a>
+        </ng-template>
       </div>
     </nav>
 
