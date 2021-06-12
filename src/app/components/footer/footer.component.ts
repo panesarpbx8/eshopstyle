@@ -5,10 +5,10 @@ import { Component, OnInit } from '@angular/core';
   template: `
     <footer>
       <div class="links">
-        <a href="">Home</a>
-        <a href="">Terms of use</a>
-        <a href="">Privacy Policy</a>
-        <a href="">About</a>
+        <a routerLink="/">Home</a>
+        <a routerLink="/terms-of-use">Terms of use</a>
+        <a routerLink="/privacy-policy">Privacy Policy</a>
+        <a routerLink="/about">About</a>
       </div>
       <div class="divider"></div>
       <p>© 2021 EShopStyle, Inc. All rights reserved.</p>

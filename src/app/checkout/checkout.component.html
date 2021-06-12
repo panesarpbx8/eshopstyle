@@ -88,7 +88,7 @@
 				</div>
 			</form>
 			<p class="red error" *ngIf="paymentForm.invalid && paymentForm.touched">Payment form has errors</p>
-			<p class="error">You have read and agreed to our <a>Privacy Policy</a> and <a>Terms of use</a></p>
+			<p class="error">You have read and agreed to our <a routerLink="/privacy-policy">Privacy Policy</a> and <a routerLink="/terms-of-use">Terms of use</a></p>
 			<button class="proceed" routerLink="/" (click)="placeOrder()">PLACE ORDER</button>
 		</div>
 	</div>
