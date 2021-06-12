@@ -67,7 +67,7 @@ export class NavbarComponent implements OnInit {
   }
 
   toggle() {
-    if (this.leftNavInner.nativeElement.style.display === 'none') {
+    if (this.leftNavInner.nativeElement.style.display !== 'flex') {
       this.leftNavInner.nativeElement.style.display = 'flex';
     } else {
       this.leftNavInner.nativeElement.style.display = 'none';
