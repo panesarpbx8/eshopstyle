@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
+import { Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { CartItem } from 'src/app/interfaces/cart';
 import { Product } from 'src/app/interfaces/product';
-import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
+import { AddItem } from 'src/app/state/cart/cart.actions';
 
 @Component({
   selector: 'app-product',
@@ -19,7 +20,7 @@ export class ProductComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private products: ProductService,
-    private cartService: CartService,
+    private store: Store,
     private title: Title,
   ) { }
 
@@ -39,7 +40,7 @@ export class ProductComponent implements OnInit {
       product: product,
       quantity: 1,
     };
-    this.cartService.addItem(item);
+    this.store.dispatch(new AddItem(item));
   }
 
 }

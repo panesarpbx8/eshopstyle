@@ -1,11 +1,13 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { Select, Store } from '@ngxs/store';
+import { Observable } from 'rxjs';
 import { Cart, CartItem } from 'src/app/interfaces/cart';
-import { CartService } from 'src/app/services/cart.service';
+import { DownQuantity, RemoveItem, UpdateItem, UpQuantity } from 'src/app/state/cart/cart.actions';
 
 @Component({
   selector: 'app-cart',
   template: `
-    <div class="cart">
+    <div class="cart" *ngIf="cart$ | async as cart">
       <div class="close" (click)="close.emit()">
         <img src="assets/img/close.svg" alt="close" height="20" width="20">
       </div>
@@ -58,30 +60,24 @@ import { CartService } from 'src/app/services/cart.service';
   `,
   styleUrls: ['./cart.component.scss']
 })
-export class CartComponent implements OnInit {
+export class CartComponent {
 
   @Output() close = new EventEmitter();
+  @Select() cart$: Observable<Cart>;
 
-  cart: Cart = this.cartService.value;
-
-  constructor(private cartService: CartService) { }
-
-  ngOnInit(): void {
-  }
+  constructor(private store: Store) { }
 
   upQuantity(item: CartItem) {
-    item.quantity++;
-    this.cartService.updateItem(item);
+    this.store.dispatch(new UpQuantity(item));
   }
 
   downQuantity(item: CartItem) {
     if (item.quantity === 1) return;
-    item.quantity--;
-    this.cartService.updateItem(item);
+    this.store.dispatch(new DownQuantity(item));
   }
 
   remove(item: CartItem) {
-    this.cartService.removeItem(item);
+    this.store.dispatch(new RemoveItem(item.id));
   }
 
 }

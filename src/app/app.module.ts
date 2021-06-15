@@ -9,6 +9,8 @@ import { HotToastModule } from '@ngneat/hot-toast';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { CartComponent } from './components/cart/cart.component';
+import { NgxsModule } from '@ngxs/store';
+import { CartState } from './state/cart/cart.state';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,9 @@ import { CartComponent } from './components/cart/cart.component';
     HotToastModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
+    NgxsModule.forRoot([CartState], {
+      developmentMode: !environment.production
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,13 +1,12 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Select } from '@ngxs/store';
+import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
-import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-navbar',
   template: `
     <nav>
-      <!-- <div class="nav-button">
-      </div> -->
       <div class="left-nav">
         <a class="menu" (click)="toggle()">
           <img src="assets/img/menu.svg" alt="menu" loading="lazy" height="20" width="20">
@@ -23,7 +22,7 @@ import { CartService } from 'src/app/services/cart.service';
       </div>
       <div class="right-nav">
         <a (click)="showCart = true" class="cart-link">
-          <span>{{ cart.totalCartItems }}</span>
+          <span *ngIf="numberOfItems$ | async as n">{{ n }}</span>
           <img src="assets/img/cart.svg" alt="cart" loading="lazy" height="25" width="25">
         </a>
         <a *ngIf="auth.user$ | async as user; else noUser" routerLink="/user">
@@ -48,10 +47,11 @@ import { CartService } from 'src/app/services/cart.service';
 export class NavbarComponent implements OnInit {
 
   @ViewChild('leftNavInner') leftNavInner: ElementRef<HTMLDivElement>;
+  @Select(state => state.cart.numberOfItems) numberOfItems$: Observable<number>;
 
   showCart: boolean;
 
-  constructor(public auth: AuthService, public cart: CartService) { 
+  constructor(public auth: AuthService) { 
     document.onscroll = () => {
       document.querySelector('nav')
         .classList.toggle('scrolled', document.scrollingElement.scrollTop > document.querySelector('nav').offsetHeight)      

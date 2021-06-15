@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
+import { Select, Store } from '@ngxs/store';
+import { Observable } from 'rxjs';
 import { Cart } from '../interfaces/cart';
 import { User } from '../interfaces/user';
 import { AuthService } from '../services/auth.service';
-import { CartService } from '../services/cart.service';
+import { PlaceOrder } from '../state/cart/cart.actions';
 
 type CheckoutState = 'user-info' | 'address' | 'payment';
 
@@ -24,11 +26,11 @@ export class CheckoutComponent implements OnInit {
   shippingForm: FormGroup;
   paymentForm: FormGroup;
 
-  cart: Cart = this.cartService.value;
+  @Select() cart$: Observable<Cart>;
 
   constructor(
     public auth: AuthService,
-    private cartService: CartService,
+    private store: Store,
     private builder: FormBuilder,
     private title: Title,
   ) { }
@@ -87,7 +89,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   placeOrder() {
-    this.cartService.placeOrder();
+    this.store.dispatch(new PlaceOrder());
   }
 
   get addressField() {
